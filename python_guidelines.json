@@ -1,0 +1,287 @@
+{
+  "python": {
+    "code_organization": {
+      "directory_structure": {
+        "prefer_flat_structure": true,
+        "use_src_layout": true,
+        "standard_structure": [
+          "src/package_name/",
+          "tests/",
+          "docs/",
+          ".gitignore",
+          "pyproject.toml",
+          "README.md",
+          "requirements.txt"
+        ]
+      },
+      "naming_conventions": {
+        "modules": "lowercase_with_underscores",
+        "packages": "lowercase",
+        "test_files": "test_prefix"
+      },
+      "module_organization": {
+        "single_responsibility": true,
+        "import_order": ["standard_library", "third_party", "local"],
+        "prefer_absolute_imports": true,
+        "constants_naming": "UPPER_CASE"
+      },
+      "architecture": {
+        "preferred_approaches": [
+          "layered_architecture",
+          "hexagonal_architecture",
+          "dependency_injection"
+        ]
+      }
+    },
+    "patterns_and_antipatterns": {
+      "design_patterns": [
+        "singleton",
+        "factory",
+        "observer",
+        "strategy",
+        "decorator",
+        "context_manager"
+      ],
+      "recommended_approaches": {
+        "data_validation": ["pydantic", "marshmallow"],
+        "configuration": ["python-decouple", "dynaconf", "configparser"],
+        "logging": "standard_library_logging",
+        "cli": ["argparse", "click", "typer"],
+        "async": "asyncio"
+      },
+      "antipatterns": {
+        "avoid": [
+          "god_classes",
+          "shotgun_surgery",
+          "spaghetti_code",
+          "duplicate_code",
+          "magic_values",
+          "nested_callbacks",
+          "premature_optimization"
+        ]
+      },
+      "state_management": {
+        "prefer_stateless": true,
+        "use_immutable_data": true,
+        "avoid_globals": true,
+        "context_vars": "python_3_7_plus"
+      },
+      "error_handling": {
+        "catch_specific_exceptions": true,
+        "use_context_managers": true,
+        "log_errors": true,
+        "custom_exceptions": true,
+        "avoid_exceptions_for_control_flow": true
+      }
+    },
+    "performance": {
+      "optimization_techniques": {
+        "profiling": "cProfile",
+        "efficient_data_structures": true,
+        "use_comprehensions": true,
+        "numpy_vectorization": true,
+        "jit_compilation": "numba",
+        "caching": ["functools.lru_cache", "redis", "memcached"],
+        "string_concatenation": "join_method"
+      },
+      "memory_management": {
+        "garbage_collection_awareness": true,
+        "circular_references": true,
+        "memory_profiling": "memory_profiler",
+        "use_slots": true,
+        "generators_for_large_datasets": true
+      },
+      "lazy_loading": {
+        "modules": "importlib.import_module",
+        "data_loading": true,
+        "deferred_execution": ["generators", "coroutines"]
+      }
+    },
+    "security": {
+      "common_vulnerabilities": {
+        "sql_injection": {
+          "prevention": ["parameterized_queries", "ORMs"]
+        },
+        "xss": {
+          "prevention": ["input_sanitization", "output_escaping"]
+        },
+        "csrf": {
+          "prevention": "csrf_tokens"
+        },
+        "command_injection": {
+          "prevention": "avoid_shell_true"
+        },
+        "path_traversal": {
+          "prevention": "path_validation"
+        },
+        "dos": {
+          "prevention": ["rate_limiting", "input_validation"]
+        },
+        "pickle_security": {
+          "prevention": "avoid_untrusted_data"
+        },
+        "dependency_vulnerabilities": {
+          "prevention": "regular_audits"
+        },
+        "hardcoded_secrets": {
+          "prevention": "environment_variables"
+        }
+      },
+      "input_validation": {
+        "whitelisting": true,
+        "regex_validation": true,
+        "data_type_validation": true,
+        "length_validation": true,
+        "sanitization": true,
+        "recommended_libraries": ["cerberus", "schematics"]
+      },
+      "authentication": {
+        "password_hashing": ["bcrypt", "Argon2"],
+        "mfa": true,
+        "session_management": true,
+        "services": ["Auth0", "Okta"]
+      },
+      "authorization": {
+        "rbac": true,
+        "abac": true,
+        "permissions_system": true,
+        "least_privilege": true,
+        "jwt": true
+      },
+      "data_protection": {
+        "encryption": ["at_rest", "in_transit"],
+        "data_masking": true,
+        "tokenization": true,
+        "dlp": true,
+        "backups": true
+      },
+      "api_security": {
+        "https": true,
+        "api_keys": true,
+        "oauth": "2.0",
+        "input_validation": true,
+        "rate_limiting": true,
+        "waf": true
+      }
+    },
+    "testing": {
+      "unit_testing": {
+        "test_individual_units": true,
+        "tdd": true,
+        "coverage_target": "high",
+        "boundary_conditions": true,
+        "error_conditions": true
+      },
+      "integration_testing": {
+        "test_interactions": true,
+        "database_testing": true,
+        "api_testing": true,
+        "mock_external_services": true
+      },
+      "e2e_testing": {
+        "test_entire_system": true,
+        "user_perspective": true,
+        "browser_automation": ["Selenium", "Playwright"],
+        "real_world_scenarios": true
+      },
+      "test_organization": {
+        "separate_test_directory": true,
+        "mirror_source_structure": true,
+        "test_modules": true,
+        "test_classes": true,
+        "test_runners": ["pytest", "unittest"],
+        "fixtures": true
+      },
+      "mocking": {
+        "unittest_mock": true,
+        "patching": true,
+        "side_effects": true,
+        "external_dependencies": true,
+        "dependency_injection": true
+      }
+    },
+    "common_pitfalls": {
+      "frequent_mistakes": {
+        "mutable_default_arguments": true,
+        "variable_scope": true,
+        "equality_vs_identity": true,
+        "try_except_blocks": true,
+        "ignoring_exceptions": true,
+        "indentation_errors": true,
+        "virtual_environments": true
+      },
+      "edge_cases": {
+        "floating_point_arithmetic": true,
+        "unicode_handling": true,
+        "file_encoding": true,
+        "time_zones": true,
+        "resource_limits": true
+      },
+      "version_specific": {
+        "python_2_vs_3": true,
+        "syntax_changes": true,
+        "library_compatibility": true,
+        "deprecated_features": true
+      },
+      "compatibility": {
+        "operating_systems": ["Windows", "macOS", "Linux"],
+        "python_implementations": ["CPython", "PyPy", "Jython"],
+        "database_versions": true,
+        "external_libraries": true
+      },
+      "debugging": {
+        "pdb": true,
+        "logging": true,
+        "print_statements": true,
+        "assertions": true,
+        "profiling": true,
+        "code_analysis_tools": ["pylint", "flake8"],
+        "remote_debugging": true
+      }
+    },
+    "tooling": {
+      "development_tools": {
+        "ides": ["PyCharm", "VS Code", "Sublime Text"],
+        "environment_managers": ["venv", "virtualenv", "conda", "pipenv"],
+        "package_managers": ["pip", "conda", "poetry"],
+        "debuggers": ["pdb", "ide_debuggers"],
+        "profilers": ["cProfile", "memory_profiler"],
+        "linters": ["pylint", "flake8"],
+        "formatters": ["black", "autopep8", "YAPF"],
+        "static_analyzers": ["mypy", "pytype"],
+        "notebooks": ["Jupyter", "Google Colab"]
+      },
+      "build_configuration": {
+        "pyproject_toml": true,
+        "setup_py": "legacy_only",
+        "dependency_management": true,
+        "virtual_environments": true,
+        "reproducible_builds": true
+      },
+      "linting_and_formatting": {
+        "pep8": true,
+        "linters": true,
+        "formatters": true,
+        "pre_commit_hooks": true,
+        "consistent_style": true
+      },
+      "deployment": {
+        "virtual_environments": true,
+        "dependency_management": true,
+        "process_managers": ["systemd", "Supervisor", "Docker"],
+        "web_servers": ["Gunicorn", "uWSGI"],
+        "load_balancing": true,
+        "containerization": ["Docker"],
+        "infrastructure_as_code": ["Terraform", "CloudFormation"]
+      },
+      "ci_cd": {
+        "continuous_integration": true,
+        "continuous_delivery": true,
+        "tools": ["Jenkins", "GitLab CI", "GitHub Actions", "CircleCI", "Travis CI"],
+        "automated_testing": true,
+        "code_analysis": true,
+        "automated_deployments": true
+      }
+    }
+  }
+}

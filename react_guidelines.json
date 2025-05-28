@@ -1,0 +1,230 @@
+{
+  "react": {
+    "code_organization": {
+      "directory_structure": {
+        "src": {
+          "components": {
+            "description": "Reusable UI components with their own directory structure",
+            "example": "Button/Button.jsx, Button/Button.module.css, Button/Button.test.jsx"
+          },
+          "contexts": "React context providers",
+          "hooks": "Custom React hooks",
+          "pages": "Top-level components representing different routes or views",
+          "services": "API interaction logic",
+          "utils": "Utility functions"
+        },
+        "recommended_approach": "Feature-based organization for larger applications"
+      },
+      "naming_conventions": {
+        "components": "PascalCase (e.g., MyComponent.jsx)",
+        "hooks": "camelCase with 'use' prefix (e.g., useCustomHook.js)",
+        "contexts": "PascalCase with 'Context' suffix (e.g., AuthContext.jsx)",
+        "services_utils": "camelCase (e.g., apiService.js, stringUtils.js)",
+        "css_modules": ".module.css or .module.scss"
+      },
+      "module_organization": {
+        "colocation": "Keep related files together",
+        "single_responsibility": "Each module should have a clear purpose",
+        "circular_dependencies": "Avoid circular dependencies between modules"
+      },
+      "component_architecture": {
+        "atomic_design": "Consider Atoms, Molecules, Organisms, Templates, Pages",
+        "composition_over_inheritance": true,
+        "separation_of_concerns": {
+          "presentational_components": "Focus on UI rendering",
+          "container_components": "Handle state and logic"
+        }
+      },
+      "code_splitting": {
+        "route_based": "Use React.lazy and Suspense for route-based code splitting",
+        "component_based": "Split large components into smaller chunks",
+        "bundle_analysis": "Use webpack-bundle-analyzer for optimization"
+      }
+    },
+    "patterns_and_antipatterns": {
+      "design_patterns": [
+        "Higher-Order Components (HOCs)",
+        "Render Props",
+        "Compound Components",
+        "Custom Hooks"
+      ],
+      "recommended_approaches": {
+        "form_handling": ["Formik", "React Hook Form", "Controlled Components"],
+        "api_calls": "Use useEffect with proper cleanup",
+        "conditional_rendering": {
+          "simple": "Short-circuit evaluation (&&) or ternary operators",
+          "complex": "Extract to separate components"
+        },
+        "list_rendering": "Always provide unique and stable key props"
+      },
+      "antipatterns": {
+        "avoid": [
+          "Direct DOM manipulation",
+          "Mutating state directly",
+          "Inline styles (prefer CSS modules or styled-components)",
+          "Over-engineering",
+          "Prop drilling (consider Context API or state management)"
+        ]
+      },
+      "state_management": {
+        "local_state": "useState for component-specific state",
+        "context_api": "For global state (avoid for frequently updated data)",
+        "state_libraries": ["Redux", "MobX", "Recoil", "Zustand"],
+        "immutability": "Treat state as immutable"
+      },
+      "error_handling": {
+        "error_boundaries": "Use for catching rendering errors",
+        "try_catch": "For async operations and event handlers",
+        "error_logging": "Implement centralized error logging"
+      }
+    },
+    "performance": {
+      "optimization_techniques": {
+        "memoization": ["React.memo", "useMemo", "useCallback"],
+        "virtualization": ["react-window", "react-virtualized"],
+        "debouncing_throttling": "For input fields and scroll events",
+        "code_splitting": "React.lazy and Suspense"
+      },
+      "memory_management": {
+        "cleanup": "Clean up event listeners, timers, and subscriptions in useEffect",
+        "memory_leaks": "Avoid holding references to unused objects",
+        "garbage_collection": "Understand JavaScript's garbage collection"
+      },
+      "rendering_optimization": {
+        "minimize_state_updates": "Avoid unnecessary re-renders",
+        "batch_updates": "Use ReactDOM.unstable_batchedUpdates when needed",
+        "keys": "Ensure keys are unique and stable"
+      },
+      "bundle_optimization": {
+        "tree_shaking": true,
+        "minification": true,
+        "image_optimization": true,
+        "dependency_analysis": "Use webpack-bundle-analyzer"
+      },
+      "lazy_loading": {
+        "route_based": "Load components on route navigation",
+        "component_based": "Load components when needed",
+        "intersection_observer": "For components that should load when visible"
+      }
+    },
+    "security": {
+      "common_vulnerabilities": {
+        "xss": {
+          "prevention": ["Sanitize user input", "Dangerously Set InnerHTML with caution"]
+        },
+        "csrf": {
+          "prevention": "Use anti-CSRF tokens"
+        },
+        "dos": {
+          "prevention": ["Rate limiting", "Input validation"]
+        },
+        "injection_attacks": {
+          "prevention": "Avoid direct user input in database queries or system commands"
+        }
+      },
+      "input_validation": {
+        "client_side": "For immediate feedback",
+        "server_side": "Always validate on server",
+        "sanitization": "Remove potentially harmful characters"
+      },
+      "authentication": {
+        "methods": ["OAuth 2.0", "JWT"],
+        "mfa": "Enable multi-factor authentication",
+        "session_management": "Secure session handling"
+      },
+      "data_protection": {
+        "encryption": ["Data at rest", "Data in transit"],
+        "masking": "For sensitive data in logs/UI",
+        "backups": "Regular data backups"
+      },
+      "api_security": {
+        "https": true,
+        "api_keys": "Protect API keys",
+        "cors": "Properly configure Cross-Origin Resource Sharing"
+      }
+    },
+    "testing": {
+      "unit_testing": {
+        "tools": ["Jest", "React Testing Library"],
+        "focus": "Test components in isolation",
+        "coverage_target": "High test coverage"
+      },
+      "integration_testing": {
+        "focus": "Test component interactions",
+        "api_mocking": "Mock API calls",
+        "tools": ["React Testing Library"]
+      },
+      "e2e_testing": {
+        "focus": "Complete user flows",
+        "tools": ["Cypress", "Playwright"],
+        "automated_browser_tests": true
+      },
+      "test_organization": {
+        "colocation": "Test files next to source files",
+        "naming": "*.test.jsx or *.spec.jsx",
+        "descriptive_names": true
+      },
+      "mocking": {
+        "jest_mocks": true,
+        "module_mocking": true,
+        "function_stubs": true
+      }
+    },
+    "common_pitfalls": {
+      "frequent_mistakes": [
+        "Missing key props in lists",
+        "Direct state mutation",
+        "Incorrect useEffect dependencies",
+        "Memory leaks from subscriptions"
+      ],
+      "edge_cases": {
+        "async_state_updates": true,
+        "race_conditions": true,
+        "error_handling_in_events": true
+      },
+      "version_specific": {
+        "react_16_vs_17_18": true,
+        "concurrent_features": true,
+        "deprecated_features": true
+      },
+      "compatibility": {
+        "browser_support": true,
+        "mobile_responsiveness": true,
+        "library_versions": true
+      },
+      "debugging": {
+        "react_devtools": true,
+        "console_logging": true,
+        "error_boundaries": true,
+        "performance_profiling": true
+      }
+    },
+    "tooling": {
+      "development_tools": {
+        "ides": ["VS Code", "WebStorm"],
+        "browser_extensions": ["React DevTools", "Redux DevTools"],
+        "debugging_tools": ["React Developer Tools", "Redux DevTools"]
+      },
+      "build_configuration": {
+        "bundlers": ["Webpack", "Vite", "Parcel"],
+        "compilers": ["Babel"],
+        "environment_variables": true
+      },
+      "linting_and_formatting": {
+        "eslint": true,
+        "prettier": true,
+        "pre_commit_hooks": ["Husky", "lint-staged"]
+      },
+      "deployment": {
+        "static_hosting": ["Vercel", "Netlify", "GitHub Pages"],
+        "ssr": ["Next.js", "Gatsby"],
+        "docker": true
+      },
+      "ci_cd": {
+        "platforms": ["GitHub Actions", "GitLab CI", "CircleCI"],
+        "automated_testing": true,
+        "automated_deployment": true
+      }
+    }
+  }
+}

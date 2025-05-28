@@ -1,0 +1,89 @@
+{
+  "$schema": "https://windsurf.dev/schemas/windsurf-config.schema.json",
+  "version": 1,
+  "guidelines": [
+    "After making changes, always start up a new server for testing",
+    "Look for existing code to iterate on instead of creating new code",
+    "Do not drastically change patterns before trying to iterate on existing ones",
+    "Always kill all existing related servers before starting a new one",
+    "Prefer simple solutions over complex ones",
+    "Avoid code duplication by checking for similar functionality in the codebase",
+    "Write code that accounts for different environments: dev, test, and prod",
+    "Only make changes that are requested or well understood and related to the current task",
+    "When fixing bugs, exhaust existing patterns before introducing new ones",
+    "Remove old implementations when replacing them with new patterns",
+    "Keep the codebase clean and organized",
+    "Avoid writing scripts in files if they're likely to be run only once",
+    "Keep files under 200-300 lines of code - refactor when needed",
+    "Use mocks only in tests, never in dev or prod",
+    "Never add stubbing or fake data patterns to dev/prod code",
+    "Never overwrite .env files without explicit confirmation",
+    "Focus changes only on relevant areas of the code",
+    "Avoid touching code unrelated to the current task",
+    "Write thorough tests for all major functionality",
+    "Avoid major changes to working patterns/architecture unless explicitly instructed",
+    "Consider the impact of changes on other methods and code areas"
+  ],
+  "rules": {
+    "max-file-length": {
+      "enabled": true,
+      "maxLines": 300,
+      "exclude": ["*.test.*", "*.spec.*"]
+    },
+    "naming": {
+      "enforceCamelCase": true,
+      "enforcePascalCase": {
+        "enabled": true,
+        "exclude": ["variables", "functions"]
+      }
+    },
+    "formatting": {
+      "indentSize": 2,
+      "maxLineLength": 100,
+      "insertFinalNewline": true,
+      "trimTrailingWhitespace": true
+    },
+    "imports": {
+      "sortOrder": ["react", "@/", "@/components", "@/utils", "@/hooks", "@/types", "./"],
+      "groupByDirectory": true
+    },
+    "react": {
+      "hooks": {
+        "exhaustiveDeps": "warn",
+        "rulesOfHooks": "error"
+      },
+      "jsx": {
+        "selfClosing": "always"
+      }
+    },
+    "typescript": {
+      "strict": true,
+      "noImplicitAny": true,
+      "strictNullChecks": true
+    },
+    "security": {
+      "detectSecrets": true,
+      "excludePatterns": ["*.test.*", "*.spec.*", "*.stories.*", "*.mock.*"]
+    }
+  },
+  "overrides": [
+    {
+      "files": ["*.test.*", "*.spec.*"],
+      "rules": {
+        "import/no-extraneous-dependencies": "off"
+      }
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "@typescript-eslint/explicit-function-return-type": [
+          "warn",
+          {
+            "allowExpressions": true,
+            "allowTypedFunctionExpressions": true
+          }
+        ]
+      }
+    }
+  ]
+}

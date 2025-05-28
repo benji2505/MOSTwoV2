@@ -1,0 +1,22 @@
+# Development tools
+black==23.7.0
+flake8==6.1.0
+isort==5.12.0
+mypy==1.5.1
+pytest==7.4.0
+pytest-cov==4.1.0
+pre-commit==3.3.3
+
+# Backend development
+fastapi==0.100.0
+uvicorn==0.22.0
+pydantic==2.1.1
+python-multipart==0.0.6
+pyserial==3.5
+paho-mqtt==2.0.0
+python-socketio==5.8.0
+websockets==11.0.3
+
+# Frontend development (requirements will be in package.json, this is for reference)
+# nodejs>=18.0.0
+# npm>=9.0.0
