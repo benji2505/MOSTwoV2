@@ -6,6 +6,7 @@ from app.db.base import Base
 
 class Machine(Base):
     __tablename__ = "machines"
+    __table_args__ = {'extend_existing': True}
 
     id = Column(String(36), primary_key=True, index=True, default=lambda: str(uuid.uuid4()))
     name = Column(String(100), nullable=False)
